@@ -48,7 +48,7 @@ h3{font-size:23px;letter-spacing:-.04em;line-height:1.25}
 .btn-primary:hover{box-shadow:7px 7px 0 var(--ink)}
 .btn-outline{background:transparent;color:var(--ink)}
 .btn-outline:hover{background:white}
-.hero-figure{position:relative;margin:0;border-radius:16px;box-shadow:20px 20px 0 var(--green);border:2px solid var(--ink);overflow:hidden;aspect-ratio:1/1}
+.hero-figure{position:relative;margin:0;border-radius:16px;box-shadow:20px 20px 0 var(--green);border:2px solid var(--ink);overflow:hidden;aspect-ratio:4/3}
 .hero-figure img{width:100%;height:100%;object-fit:cover;display:block}
 .image-stamp{position:absolute;bottom:19px;left:18px;right:18px;padding:12px 15px;background:rgba(255,255,255,.92);border:1px solid var(--ink);border-radius:6px;display:flex;justify-content:space-between;gap:16px;font-size:11px;font-weight:900;letter-spacing:.07em;text-transform:uppercase}
 .hero-facts{display:flex;flex-wrap:wrap;gap:30px;margin-top:64px;padding-top:22px;border-top:1px solid var(--line)}
@@ -151,8 +151,8 @@ h3{font-size:23px;letter-spacing:-.04em;line-height:1.25}
 @media(max-width:720px){.citizen-invite{padding:0 0 68px}.citizen-invite-inner{flex-direction:column;align-items:stretch;padding:28px 22px}.citizen-invite-inner .btn{width:100%}}
 
 /* Государственная идеология · редакция 2026 */
-.hero-figure{display:grid;place-items:center;background:radial-gradient(ellipse at 12% 15%,rgba(255,255,255,.9),transparent 52%),linear-gradient(145deg,#e8d9ed,#c8d6d9 72%,#9ab2d0);padding:24px}
-.hero-figure img{width:100%;height:auto;object-fit:contain;aspect-ratio:3 / 2;box-shadow:0 17px 38px rgba(19,17,28,.22)}
+.hero-figure{display:block;background:none;padding:0}
+.hero-figure img{width:100%;height:100%;object-fit:cover;aspect-ratio:auto;box-shadow:none}
 .flag-frame img{aspect-ratio:3 / 2;object-fit:contain}
 .flag-color-list li{align-items:flex-start;line-height:1.5}
 .flag-color-list li>span:last-child{display:flex;flex-direction:column;gap:4px}
@@ -178,7 +178,7 @@ h3{font-size:23px;letter-spacing:-.04em;line-height:1.25}
 .amendment-grid article h4{font-size:18px;margin:7px 0}
 .amendment-grid article p{font-size:14px;line-height:1.6;color:#53505a;margin:0}
 .amendments-download{font-weight:800;font-size:13px;text-underline-offset:4px;color:#7b198d}
-@media(max-width:720px){.motto-band{padding:48px 0}.motto-layout,.amendment-grid{grid-template-columns:1fr;gap:16px}.amendments{padding:21px}.hero-figure{padding:15px}.hero-figure img{margin-bottom:32px}}
+@media(max-width:720px){.motto-band{padding:48px 0}.motto-layout,.amendment-grid{grid-template-columns:1fr;gap:16px}.amendments{padding:21px}.hero-figure{padding:0}.hero-figure img{margin-bottom:0}}
 </style>
 </head>
 <body>
@@ -190,7 +190,7 @@ h3{font-size:23px;letter-spacing:-.04em;line-height:1.25}
 <main id="top">
 <section class="hero" id="about"><div class="wrapper"><div class="hero-grid">
 <div class="hero-copy"><div class="eyebrow">Одна нация. Бесконечность пикселей.</div><h1>Объединённый <span class="accent-underline">Слопостан</span></h1><p class="lead">Виртуальная республика бесконечного скролла, кликбейта и великой цифровой бессмыслицы. Здесь контент возникает быстрее, чем успевает появиться его смысл, а зависшая буферизация считается формой национальной стабильности.</p><div class="hero-actions"><a class="btn btn-primary" href="#constitution">Читать Конституцию <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="id.html">Получить цифровой ID <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="#flag">Символы государства <span aria-hidden="true">↓</span></a></div></div>
-<figure class="hero-figure"><img src="assets/flag-hero.webp" alt="Флаг Объединённого Слопостана развевается над горной долиной на фоне солнечного неба" width="1254" height="1254" fetchpriority="high"><figcaption class="image-stamp"><span>Единство в многообразии</span><span>ОС / ∞</span></figcaption></figure>
+<figure class="hero-figure"><img src="assets/flag-hero.webp" alt="Флаг Объединённого Слопостана развевается над горной долиной на фоне солнечного неба" width="1448" height="1086" fetchpriority="high"><figcaption class="image-stamp"><span>Единство в многообразии</span><span>ОС / ∞</span></figcaption></figure>
 </div><div class="hero-facts"><div class="fact"><small>Форма правления</small><strong>Цифровая республика</strong></div><div class="fact"><small>Столица</small><strong>Слопоград</strong></div><div class="fact"><small>Границы</small><strong>Не установлены</strong></div><div class="fact"><small>Национальный девиз</small><strong>В бессмыслице единство!</strong></div></div></div></section>
 <section class="section principles" aria-labelledby="principles-title"><div class="wrapper"><div class="section-header"><span class="eyebrow">На чём всё держится</span><h2 id="principles-title">Наши принципы</h2><p class="lead">Народ Слопостана объединяет не единая истина, а общий опыт цифрового разложения: бесконечная лента, алгоритмическое изобилие и слабое качество. Бессмыслица здесь не повод ограничивать свободу, а предмет государственной самоиронии. Слопостан существует благодаря добровольному участию своих жителей. Здесь идеи важнее границ, а право на ошибку защищено Конституцией.</p></div><div class="principle-grid">
 <article class="principle-card"><div class="principle-icon" aria-hidden="true">∞</div><h3>Без границ</h3><p>Наше государство существует в цифровом пространстве, а не на карте.</p></article>
