@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#b52ced">
+<meta name="description" content="Сувенирный цифровой ID гражданина Объединённого Слопостана: загрузите фото, введите ФИО и получите случайные государственные регалии.">
+<title>Цифровой ID гражданина — Объединённый Слопостан</title>
+<style>
+:root{--ink:#19151e;--paper:#f7f6f1;--purple:#b52ced;--green:#b3c488;--cyan:#4eece9;--muted:#685f6c;--line:#ded9df}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+a{color:inherit}button,input{font:inherit}button,a,input{outline-offset:4px}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--purple)}
+.wrapper{width:min(calc(100% - 48px),1240px);margin:0 auto}
+.tricolor{height:7px;background:linear-gradient(90deg,var(--purple) 0 33.333%,var(--green) 33.333% 66.666%,var(--cyan) 66.666%)}
+.site-header{background:var(--paper);border-bottom:1px solid var(--line)}
+.head-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:86px}
+.logo{display:flex;gap:13px;align-items:center;text-decoration:none}
+.logo-icon{display:grid;place-items:center;width:42px;height:42px;border:2px solid var(--ink);border-radius:10px;box-shadow:3px 3px 0 var(--ink);background:linear-gradient(var(--purple) 0 33%,var(--green) 33% 66%,var(--cyan) 66%);font-weight:900;font-size:15px}
+.logo-title{font-weight:850;font-size:14px;line-height:1.15;letter-spacing:.01em;text-transform:uppercase}
+.logo-small{display:block;font-size:10px;line-height:1.75;letter-spacing:.12em;color:var(--muted)}
+.backlink{font-weight:750;text-decoration:none;font-size:13px;display:inline-flex;gap:12px;align-items:center}
+.backlink:hover{text-decoration:underline;text-underline-offset:4px}
+.hero{background:#1b1820;color:#fff;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-120px;top:-200px;width:650px;height:650px;opacity:.38;border-radius:100%;background:radial-gradient(circle,rgba(181,44,237,.35),transparent 65%);pointer-events:none}
+.hero-content{padding:67px 0 76px;position:relative;z-index:1}
+.eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:850;color:#c9f7ef}
+.eyebrow::before{content:"";width:28px;height:4px;background:var(--cyan)}
+h1{font-size:clamp(40px,6vw,78px);line-height:1.03;max-width:900px;letter-spacing:-.055em;text-transform:uppercase;margin:20px 0 24px;font-weight:900}
+h1 span{color:var(--cyan)}
+.hero p{font-size:17px;color:#ddd5e0;max-width:690px;margin:0;line-height:1.65}
+.main{padding:55px 0 85px}
+.app-grid{display:grid;grid-template-columns:minmax(300px,395px) minmax(0,1fr);gap:30px;align-items:start}
+.panel{border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 10px 45px rgba(41,20,45,.045)}
+.form-panel{padding:29px}
+.step{display:flex;align-items:center;gap:11px;margin-bottom:21px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:850;color:#847b85}
+.step-number{background:var(--purple);color:var(--ink);padding:5px 9px;border:2px solid var(--ink);border-radius:6px;letter-spacing:0;font-size:12px;box-shadow:2px 2px 0 var(--ink)}
+h2{font-size:27px;line-height:1.18;letter-spacing:-.035em;margin:0 0 12px}
+.panel-intro{font-size:14px;color:var(--muted);margin:0 0 28px}
+.field-label{display:block;font-size:13px;font-weight:850;margin:0 0 9px}
+.field{width:100%;padding:14px 15px;border-radius:8px;border:1.5px solid #bfb8c2;background:#fff;min-height:52px;color:var(--ink);font-weight:650}
+.field::placeholder{font-weight:450;color:#aaa1ae}
+.control{margin-bottom:24px}
+.photo-input{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.photo-select{cursor:pointer;display:flex;gap:14px;align-items:center;border:2px dashed #bbb3bf;border-radius:10px;padding:13px;background:#fbfaf9;min-height:112px;transition:background .15s,border-color .15s}
+.photo-select:hover{border-color:var(--purple);background:#f8edff}
+.photo-thumb{width:76px;height:82px;flex:0 0 76px;background:repeating-linear-gradient(45deg,#e6e0e9 0 10px,#f6f2f7 10px 20px);border:1px solid #d7cfd8;border-radius:6px;display:grid;place-items:center;overflow:hidden}
+.photo-thumb img{width:100%;height:100%;object-fit:cover;display:none}
+.photo-thumb svg{width:35px;height:35px;color:#79727f}
+.photo-name{font-size:13px;font-weight:800;line-height:1.4;word-break:break-word}
+.photo-help{display:block;margin-top:4px;font-size:11px;color:var(--muted);font-weight:450}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;text-decoration:none;border-radius:8px;border:2px solid var(--ink);font-size:13px;font-weight:850;padding:15px 17px;min-height:54px;transition:transform .12s,box-shadow .12s}
+.btn:hover:not(:disabled){transform:translateY(-2px)}.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn-primary{background:var(--purple);color:var(--ink);box-shadow:5px 5px 0 var(--ink);width:100%}
+.btn-primary:hover:not(:disabled){box-shadow:7px 7px 0 var(--ink)}
+.btn-secondary{background:var(--cyan);color:var(--ink);box-shadow:4px 4px 0 var(--ink)}
+.btn-outline{background:#fff;color:var(--ink)}
+.form-note{font-size:12px;color:#756c7a;margin:22px 0 0;line-height:1.65}
+.form-error{font-weight:700;font-size:13px;color:#a71d35;min-height:18px;margin:13px 0 0}
+.preview-panel{padding:28px;background:#fff}
+.preview-title{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:19px}
+.preview-title h2{margin:0;font-size:23px}
+.preview-status{font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:800;background:#edf0e8;padding:7px 10px;border-radius:5px;color:#4e5f44}
+.canvas-frame{overflow:hidden;border:1px solid #29232d;border-radius:10px;background:#1b1720;box-shadow:0 12px 32px rgba(0,0,0,.12)}
+canvas{display:block;width:100%;height:auto;aspect-ratio:1440/900}
+.preview-actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:20px}
+.preview-actions .btn{flex:1 1 190px}
+.preview-caption{font-size:12px;color:var(--muted);margin:20px 0 0;line-height:1.6}
+.caption-mark{display:inline-block;font-size:10px;color:#524657;background:var(--green);border-radius:4px;padding:3px 6px;letter-spacing:.08em;text-transform:uppercase;font-weight:850;margin-right:7px}
+.footer{background:#1b1820;color:#cfc7d0;padding:34px 0;font-size:12px}
+.footer-inner{display:flex;align-items:start;justify-content:space-between;gap:25px}
+.footer a{color:#fff;white-space:nowrap}
+.footer p{max-width:790px;margin:0}
+@media(max-width:960px){.app-grid{grid-template-columns:1fr}.form-panel{max-width:none}.main{padding-top:36px}.preview-panel{padding:20px}}
+@media(max-width:600px){.wrapper{width:calc(100% - 32px)}.head-inner{min-height:75px;gap:8px}.logo-title{font-size:11px}.logo-small{font-size:9px}.logo-icon{width:36px;height:36px;font-size:12px}.backlink{font-size:12px}.hero-content{padding:47px 0 51px}.hero p{font-size:15px}.main{padding:25px 0 55px}.form-panel{padding:21px}.preview-panel{padding:14px}.preview-title{align-items:start;flex-direction:column;gap:9px}.preview-title h2{font-size:20px}.btn{width:100%}.preview-actions{gap:12px}.footer-inner{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="tricolor" aria-hidden="true"></div>
+<header class="site-header"><div class="wrapper head-inner">
+<a class="logo" href="index.html"><span class="logo-icon">ОС</span><span class="logo-title">Объединённый<br>Слопостан<span class="logo-small">Цифровое государство</span></span></a>
+<a class="backlink" href="index.html">← На главную</a>
+</div></header>
+<section class="hero"><div class="wrapper hero-content"><div class="eyebrow">Государственная услуга № СЛОП-001</div><h1>Цифровой ID<br><span>гражданина</span></h1><p>У каждого гражданина должно быть удостоверение. Даже если государство существует исключительно в информационном пространстве и иногда забывает собственную столицу.</p></div></section>
+<main class="main"><div class="wrapper app-grid">
+<section class="panel form-panel" aria-labelledby="form-title"><div class="step"><span class="step-number">01</span> Личное дело</div><h2 id="form-title">Сведения о гражданине</h2><p class="panel-intro">Для бюрократической процедуры достаточно двух достоверных сведений. Остальное государство придумает самостоятельно.</p>
+<form id="id-form">
+<div class="control"><label class="field-label" for="fullname">Фамилия, имя, отчество или псевдоним</label><input class="field" id="fullname" name="fullname" type="text" maxlength="90" placeholder="Например, Иван Иванович Слопов" autocomplete="name"></div>
+<div class="control"><span class="field-label">Фотография гражданина</span><input class="photo-input" type="file" id="photo" name="photo" accept="image/jpeg,image/png,image/webp,image/gif" aria-describedby="photo-instructions"><label for="photo" class="photo-select"><span class="photo-thumb" id="thumb"><svg id="placeholder-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="20" cy="12" r="8"/><path d="M5 38c0-10 6-16 15-16s15 6 15 16"/></svg><img id="thumb-img" alt="Миниатюра загруженной фотографии"></span><span><span class="photo-name" id="photo-name">Выбрать фотографию</span><span class="photo-help" id="photo-instructions">JPG, PNG, WebP или GIF · до 10 МБ</span></span></label></div>
+<button class="btn btn-primary" type="submit" id="generate">Сгенерировать ID →</button><p class="form-error" id="form-error" role="alert" aria-live="polite"></p>
+</form>
+<p class="form-note">Данные обрабатываются непосредственно в браузере. Фото и ФИО не отправляются на сервер и не сохраняются на сайте.</p>
+</section>
+<section class="panel preview-panel" aria-labelledby="preview-title"><div class="preview-title"><h2 id="preview-title">Предварительный просмотр</h2><span class="preview-status" id="preview-status">Ожидает гражданина</span></div>
+<div class="canvas-frame"><canvas id="id-canvas" width="1440" height="900" role="img" aria-label="Предварительный просмотр сувенирного цифрового удостоверения гражданина Слопостана">Ваш браузер не поддерживает canvas.</canvas></div>
+<div class="preview-actions"><button type="button" class="btn btn-secondary" id="download" disabled>Скачать удостоверение PNG ↓</button><button type="button" class="btn btn-outline" id="reroll" disabled>Перегенерировать регалии ↻</button></div>
+<p class="preview-caption"><span class="caption-mark">Образец</span>Сгенерированный ID — художественный сувенир, не удостоверение личности и не подтверждение настоящего гражданства. Номера и звания вымышленные, QR-подобные элементы декоративны.</p>
+</section></div></main>
+<footer class="footer"><div class="wrapper footer-inner"><p>Объединённый Слопостан — сатирический проект виртуального государства. Удостоверения создаются исключительно для развлечения и не имеют юридической силы.</p><a href="index.html">Вернуться к Конституции ↗</a></div></footer>
+<script>
+(()=>{'use strict';
+const W=1440,H=900,canvas=document.getElementById('id-canvas'),ctx=canvas.getContext('2d');
+const form=document.getElementById('id-form'),fio=document.getElementById('fullname'),photoInput=document.getElementById('photo');
+const thumb=document.getElementById('thumb-img'),photoName=document.getElementById('photo-name');
+const err=document.getElementById('form-error'),status=document.getElementById('preview-status');
+const download=document.getElementById('download'),reroll=document.getElementById('reroll');
+let portrait=null,portraitURL=null,current=null;
+const flag=new Image();flag.onload=()=>draw();flag.onerror=()=>draw();flag.src='data:image/webp;base64,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';
+const pick=(arr)=>arr[rand(arr.length)];
+function rand(max){if(window.crypto?.getRandomValues){const a=new Uint32Array(1);crypto.getRandomValues(a);return a[0]%max}return Math.floor(Math.random()*max)}
+const ranks=[
+'Почётный хранитель промптов','Гражданин первой галлюцинации','Заслуженный ветеран скролла',
+'Суверенный цифровой субъект','Резидент повышенной слопности','Младший инспектор мемов',
+'Временно бессрочный гражданин','Пиксельный коллежский советник','Кандидат в генералы генерации',
+'Почётный свидетель рендера'];
+const regions=[
+'г. Слопоград','Верхний Мемск','Республика Вечного Скролла','Автономия Нижнего Промпта',
+'Область Трёх Пальцев','Край Бесконечного Рендера','Округ Заднего Фона',
+'Пиксельная губерния','Уезд Нейронных Туманов','Посёлок Большая Перегенерация'];
+const permits=['SLP–I / ИЗБРАННЫЙ','SLP–II / УВЕРЕННЫЙ','SLP–III / МЕМЕТИЧЕСКИЙ','SLP–IV / БЕЗУСЛОВНЫЙ','SLP–∞ / ОСОБЫЙ'];
+const notes=[
+'Признан существующим большинством моделей','Имеет право на шестой палец',
+'Не подлежит коррекции промпта','Зарегистрирован вне поля зрения',
+'Может пересекать границы кадра','Внесён в архив будущих событий',
+'Сгенерирован без предварительного согласования','Предоставлен допуск к бесконечному скроллу',
+'Носитель государственного абсурда'];
+const periods=['До перезапуска реальности','Бессрочно до следующего релиза','До окончательной перегенерации','До исчезновения последнего пикселя','До исправления исходного промпта'];
+function issued(){const d=new Date();let year=2024+rand(Math.max(1,d.getFullYear()-2023));let month=rand(12),day=1+rand(28);if(year===d.getFullYear()){month=rand(d.getMonth()+1);if(month===d.getMonth())day=1+rand(Math.max(1,Math.min(28,d.getDate())))}return [String(day).padStart(2,'0'),String(month+1).padStart(2,'0'),year].join('.')}
+function newData(){return {name:fio.value.trim().replace(/\s+/g,' '),id:'SLP-'+String(new Date().getFullYear()).slice(2)+'-'+String(rand(90000000)+10000000),rank:pick(ranks),region:pick(regions),permit:pick(permits),note:pick(notes),period:pick(periods),issued:issued()}}
+function rounded(x,y,w,h,r){ctx.beginPath();ctx.roundRect(x,y,w,h,r)}
+function fillRect(x,y,w,h,color){ctx.fillStyle=color;ctx.fillRect(x,y,w,h)}
+function text(t,x,y,size,color='#19151e',weight=700,font='system-ui'){ctx.fillStyle=color;ctx.font=`${weight} ${size}px ${font}`;ctx.textAlign='left';ctx.fillText(t,x,y)}
+function fit(t,x,y,maxWidth,size=35,minSize=22,color='#18131b',weight=800){let s=size;ctx.font=`${weight} ${s}px system-ui`;while(ctx.measureText(t).width>maxWidth && s>minSize){s-=1;ctx.font=`${weight} ${s}px system-ui`}text(t,x,y,s,color,weight)}
+function label(t,x,y){text(t,x,y,16,'#736879',800)}
+function linesFor(t,maxWidth,size){ctx.font=`900 ${size}px system-ui`;const words=t.split(' '),lines=[];let line='';for(const word of words){const candidate=line?line+' '+word:word;if(ctx.measureText(candidate).width<=maxWidth || !line){line=candidate}else{lines.push(line);line=word}}if(line)lines.push(line);return lines}
+function nameLines(t){let size=59,lines=[];for(;size>=30;size--){lines=linesFor(t,895,size);if(lines.length<=3 && lines.every(s=>{ctx.font=`900 ${size}px system-ui`;return ctx.measureText(s).width<=895}))break}return {size,lines:lines.slice(0,3)}}
+function paintPhoto(){const x=69,y=280,w=317,h=401;ctx.save();rounded(x,y,w,h,9);ctx.clip();fillRect(x,y,w,h,'#ded5df');
+if(portrait){const sw=portrait.naturalWidth,sh=portrait.naturalHeight,scale=Math.max(w/sw,h/sh),dw=sw*scale,dh=sh*scale;ctx.drawImage(portrait,x+(w-dw)/2,y+(h-dh)/2,dw,dh)}
+else{fillRect(x,y,w,h,'#d9d5dc');ctx.fillStyle='#aba2b1';ctx.beginPath();ctx.arc(x+w/2,y+138,74,0,2*Math.PI);ctx.fill();ctx.beginPath();ctx.ellipse(x+w/2,y+380,149,160,0,0,2*Math.PI);ctx.fill()}
+const shading=ctx.createLinearGradient(x,y,x,y+h);shading.addColorStop(0,'rgba(255,255,255,.11)');shading.addColorStop(1,'rgba(0,0,0,.10)');fillRect(x,y,w,h,shading);ctx.restore();ctx.strokeStyle='#28202c';ctx.lineWidth=4;rounded(x,y,w,h,9);ctx.stroke();
+fillRect(x,y+376,w,25,'rgba(25,19,30,.83)');text('ОБРАЗЕЦ  /  01',x+13,y+393,12,'#fff',850)}
+function draw(){const data=current??{name:'ВАШЕ ФИО',id:'SLP-??-????????',rank:'Заслуженный хранитель промптов',region:'г. Слопоград',permit:'SLP–∞ / ОСОБЫЙ',note:'Право на шестой палец гарантировано',issued:'00.00.20XX',period:'До перезапуска реальности'};
+ctx.clearRect(0,0,W,H);fillRect(0,0,W,H,'#f7f5ef');
+// три полосы флага по краю
+fillRect(0,0,480,14,'#b52ced');fillRect(480,0,480,14,'#b3c488');fillRect(960,0,480,14,'#4eece9');
+fillRect(0,14,1440,221,'#1b1620');
+ctx.save();ctx.globalAlpha=.16;ctx.strokeStyle='#b52ced';ctx.lineWidth=3;for(let i=-200;i<1250;i+=80){ctx.beginPath();ctx.moveTo(i,15);ctx.lineTo(i+340,235);ctx.stroke()}ctx.restore();
+text('ОБЪЕДИНЁННЫЙ',70,93,46,'#ffffff',900);text('СЛОПОСТАН',70,151,66,'#4eece9',900);
+text('ЦИФРОВОЕ УДОСТОВЕРЕНИЕ  /  ГОСУСЛУГА СЛОП–001',74,198,18,'#e8ddea',750);
+// изображение настоящего государственного флага
+if(flag.complete && flag.naturalWidth){ctx.save();ctx.shadowColor='rgba(0,0,0,.6)';ctx.shadowBlur=12;ctx.drawImage(flag,1120,43,237,158);ctx.restore();ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.strokeRect(1120,43,237,158)}
+else{fillRect(1120,43,237,53,'#b52ced');fillRect(1120,96,237,53,'#b3c488');fillRect(1120,149,237,52,'#4eece9')}
+// бумага и защитный узор
+fillRect(0,235,W,553,'#f7f5ef');ctx.save();ctx.globalAlpha=.055;ctx.strokeStyle='#7513a1';ctx.lineWidth=2;for(let i=0;i<23;i++){ctx.beginPath();ctx.arc(1320,650,i*32,0,Math.PI*2);ctx.stroke()}ctx.restore();
+paintPhoto();text('ФОТОГРАФИЯ',74,713,14,'#7d6f81',750);text('ИЗ ВЕРСИИ РЕАЛЬНОСТИ 1.0',74,735,13,'#7d6f81',650);
+const xx=437;label('ФАМИЛИЯ, ИМЯ, ОТЧЕСТВО / ПСЕВДОНИМ',xx,287);
+const nm=nameLines(data.name.toUpperCase());let y=nm.lines.length===3?345:358;for(const line of nm.lines){fit(line,xx,y,905,nm.size,29,'#1a1420',900);y+=nm.size+7}
+fillRect(xx,454,929,2,'#2c2430');
+label('ЛИЧНЫЙ НОМЕР',xx,489);fit(data.id,xx,535,800,40,26,'#892cb2',900);
+fillRect(xx,556,929,1,'#dad1dc');
+label('ГОСУДАРСТВЕННОЕ ЗВАНИЕ',xx,588);fit(data.rank,xx,627,525,28,19,'#211827',780);
+label('КАТЕГОРИЯ ДОПУСКА',1008,588);fit(data.permit,1008,627,344,26,18,'#211827',790);
+label('ЦИФРОВАЯ ПРОПИСКА',xx,668);fit(data.region,xx,706,535,27,18,'#211827',780);
+label('ДАТА ВЫДАЧИ',1008,668);text(data.issued,1008,706,27,'#211827',780);
+label('ОСОБАЯ ОТМЕТКА',xx,747);fit(data.note,xx,779,920,27,17,'#8625af',830);
+// футер удостоверения
+fillRect(0,789,1440,111,'#1b1620');fillRect(0,789,480,8,'#b52ced');fillRect(480,789,480,8,'#b3c488');fillRect(960,789,480,8,'#4eece9');
+text('СРОК ДЕЙСТВИЯ',70,839,15,'#91f5f1',850);fit(data.period,70,876,660,28,18,'#ffffff',800);
+text('СУВЕНИРНЫЙ ЦИФРОВОЙ ID',933,839,20,'#ffffff',900);
+text('НЕ УДОСТОВЕРЯЕТ ЛИЧНОСТЬ',933,870,17,'#faadca',840);
+}
+function clearError(){err.textContent=''}
+function setReady(isReady){download.disabled=!isReady;reroll.disabled=!isReady;status.textContent=isReady?'ID выдан · условно':'Ожидает гражданина'}
+photoInput.addEventListener('change',()=>{clearError();const f=photoInput.files?.[0];if(portraitURL){URL.revokeObjectURL(portraitURL);portraitURL=null}
+portrait=null;thumb.style.display='none';document.getElementById('placeholder-icon').style.display='block';if(!f){photoName.textContent='Выбрать фотографию';draw();setReady(false);return}
+if(!/^image\/(jpeg|png|webp|gif)$/.test(f.type)||f.size>10*1024*1024){photoName.textContent='Выбрать фотографию';err.textContent='Нужен JPG, PNG, WebP или GIF размером до 10 МБ.';photoInput.value='';setReady(false);draw();return}
+const thisURL=URL.createObjectURL(f);portraitURL=thisURL;const im=new Image();im.onload=()=>{if(portraitURL!==thisURL)return;portrait=im;thumb.src=thisURL;thumb.style.display='block';document.getElementById('placeholder-icon').style.display='none';photoName.textContent=f.name;if(current){draw();setReady(Boolean(fio.value.trim()))}else draw()};im.onerror=()=>{if(portraitURL===thisURL){err.textContent='Не удалось прочитать изображение.';photoInput.value='';setReady(false)}};im.src=thisURL});
+fio.addEventListener('input',()=>{clearError();if(current){current.name=fio.value.trim().replace(/\s+/g,' ')||'ВАШЕ ФИО';draw();setReady(Boolean(fio.value.trim()&&portrait))}});
+form.addEventListener('submit',(event)=>{event.preventDefault();clearError();if(!fio.value.trim()){err.textContent='Укажи ФИО или псевдоним.';fio.focus();return}if(!portrait){err.textContent='Для выдачи удостоверения необходима фотография.';photoInput.focus();return}current=newData();draw();setReady(true)});
+reroll.addEventListener('click',()=>{if(!current||!portrait||!fio.value.trim())return;current=newData();draw();setReady(true)});
+download.addEventListener('click',()=>{if(!current||!portrait||!fio.value.trim())return;canvas.toBlob(blob=>{if(!blob){err.textContent='Не удалось сохранить PNG.';return}const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`slopostan-id-${current.id}.png`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),15000)},'image/png')});
+draw();
+})();
+</script>
+</body>
+</html>
