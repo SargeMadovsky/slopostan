@@ -7,7 +7,7 @@
 <meta name="description" content="Объединённый Слопостан — виртуальное государство без физических границ. Флаг, государственный гимн и проект Конституции.">
 <title>Объединённый Слопостан — официальный портал виртуального государства</title>
 <style>
-:root{--ink:#16151a;--paper:#f7f6f1;--white:#fff;--purple:#b52ced;--green:#b3c488;--cyan:#4eece9;--muted:#6c6873;--line:rgba(22,21,26,.14);--page:1160px}
+:root{--ink:#16151a;--paper:#f7f6f1;--white:#fff;--purple:#C321EA;--green:#B9B28B;--cyan:#39CEFF;--muted:#6c6873;--line:rgba(22,21,26,.14);--page:1160px}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
@@ -147,6 +147,36 @@ h3{font-size:23px;letter-spacing:-.04em;line-height:1.25}
 .citizen-invite-inner p{max-width:620px;margin:0;font-size:15px;line-height:1.65}
 .citizen-invite-inner .btn{flex-shrink:0;background:var(--cyan);box-shadow:5px 5px 0 var(--ink)}
 @media(max-width:720px){.citizen-invite{padding:0 0 68px}.citizen-invite-inner{flex-direction:column;align-items:stretch;padding:28px 22px}.citizen-invite-inner .btn{width:100%}}
+
+/* Государственная идеология · редакция 2026 */
+.hero-figure{display:grid;place-items:center;background:radial-gradient(ellipse at 12% 15%,rgba(255,255,255,.9),transparent 52%),linear-gradient(145deg,#e8d9ed,#c8d6d9 72%,#9ab2d0);padding:24px}
+.hero-figure img{width:100%;height:auto;object-fit:contain;aspect-ratio:3 / 2;box-shadow:0 17px 38px rgba(19,17,28,.22)}
+.flag-frame img{aspect-ratio:3 / 2;object-fit:contain}
+.flag-color-list li{align-items:flex-start;line-height:1.5}
+.flag-color-list li>span:last-child{display:flex;flex-direction:column;gap:4px}
+.flag-color-list .color-name{min-width:0;display:block;font-size:14px;color:#fff}
+.flag-color-list .color-name small{font-weight:500;color:#d3cbd5;font-size:11px}
+.flag-color-list .color-meaning{display:block;font-size:13px;line-height:1.55}
+.emblem-story{border-left:3px solid var(--cyan);padding:2px 0 2px 16px;margin-top:28px}
+.emblem-story strong{display:block;font-size:15px}
+.emblem-story p{font-size:14px;line-height:1.65;color:#d1cbd4;margin:8px 0 0}
+.flag-download{display:inline-block;margin-top:14px;color:var(--cyan);font-size:13px;font-weight:800;text-underline-offset:4px}
+.motto-band{background:#dbecf1;border-top:4px solid #17101a;border-bottom:4px solid #17101a;padding:78px 0}
+.motto-layout{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.motto-layout h2{font-size:clamp(46px,7vw,90px);line-height:.99;margin:12px 0 0;letter-spacing:-.06em}
+.motto-ru{font-size:clamp(26px,3.5vw,46px);font-family:Georgia,serif;margin:0;line-height:1.22}
+.motto-explain{color:#42424b;max-width:440px;line-height:1.6;font-size:15px}
+.motto-seal{display:inline-block;border:1px solid #1c1623;padding:8px 12px;border-radius:2px;font-size:12px;font-weight:900;letter-spacing:.08em;background:#fff}
+.amendments{margin:45px 0 0;padding:33px;border:1px solid var(--line);border-radius:14px;background:#eff6f5}
+.amendments-heading h3{font-size:clamp(27px,4vw,40px);margin:10px 0}
+.amendments-heading p{color:#56535d;font-size:14px;max-width:700px;line-height:1.7}
+.amendment-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:25px 0}
+.amendment-grid article{padding:22px;border:1px solid #d4d9d9;background:white;border-radius:9px}
+.amendment-grid article span{font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.09em;color:#7d2697}
+.amendment-grid article h4{font-size:18px;margin:7px 0}
+.amendment-grid article p{font-size:14px;line-height:1.6;color:#53505a;margin:0}
+.amendments-download{font-weight:800;font-size:13px;text-underline-offset:4px;color:#7b198d}
+@media(max-width:720px){.motto-band{padding:48px 0}.motto-layout,.amendment-grid{grid-template-columns:1fr;gap:16px}.amendments{padding:21px}.hero-figure{padding:15px}.hero-figure img{margin-bottom:32px}}
 </style>
 </head>
 <body>
