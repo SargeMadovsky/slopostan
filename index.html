@@ -135,6 +135,8 @@ h3{font-size:23px;letter-spacing:-.04em;line-height:1.25}
 .footer-bottom{display:flex;justify-content:space-between;gap:25px;align-items:center;border-top:1px solid #4b454e;padding-top:25px;color:#c3b9c9;font-size:12px}
 .footer-bottom p{max-width:660px;margin:0}
 .footer-bottom a{white-space:nowrap;text-decoration:none;color:#fff}
+.footer-links{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center}
+.footer-links a:hover{text-decoration:underline;text-underline-offset:4px}
 @media(max-width:1020px){nav{gap:15px}.hero-grid{gap:40px}h1{font-size:clamp(46px,6vw,76px)}.principle-grid{grid-template-columns:repeat(2,1fr)}.flag-grid{gap:35px}.hymn-top{gap:34px}}
 @media(max-width:720px){.wrapper{width:min(calc(100% - 32px),var(--page))}.head-inner{min-height:70px;flex-wrap:wrap;gap:10px;padding:14px 0}.logo-title{font-size:12px}html{scroll-padding-top:145px}nav{width:100%;justify-content:space-between;gap:10px;overflow-x:auto;padding:2px 0 5px}nav a{font-size:12px}.nav-accent{padding:8px 10px}.hero{padding:45px 0 60px}.hero-grid,.flag-grid,.hymn-top,.law-intro{grid-template-columns:1fr}.hero-grid{gap:36px}.hero h1{font-size:clamp(33px,8.7vw,56px)}.lead{font-size:16px}.hero-figure{width:calc(100% - 17px)}.hero-facts{margin-top:39px;gap:14px 28px}.section{padding:70px 0}h2{font-size:clamp(39px,8vw,56px)}.principles{padding-top:0}.principle-grid{gap:10px}.principle-card{min-height:215px;padding:20px 17px}.principle-card h3{font-size:18px}.principle-icon{margin-bottom:22px}.hymn-top{gap:4px;margin-bottom:32px}.hymn-lyrics{padding:23px 19px}.lyrics-cols{grid-template-columns:1fr;gap:27px}.lyrics-head{align-items:start;flex-direction:column;gap:4px}.law-stats{justify-content:flex-start}.law-toolbar{align-items:start;flex-direction:column;gap:9px}.law-chapter summary{padding:20px 17px;font-size:15px}.chapter-right{gap:11px}.law-body{padding:12px 20px 20px}.preamble{padding:22px}.preamble p{font-size:16px}.footer-main,.footer-bottom{flex-direction:column;align-items:start}.footer-main{padding-bottom:35px}}
 @media(max-width:390px){.principle-grid{grid-template-columns:1fr}.principle-card{min-height:0}.flag-color-list li{align-items:start}.color-name{min-width:86px}.law-stats{gap:9px}.law-stat{padding:14px;min-width:100px}.chapter-number{display:none}}
@@ -183,7 +185,7 @@ h3{font-size:23px;letter-spacing:-.04em;line-height:1.25}
 <div class="tricolor" aria-hidden="true"></div>
 <header class="site-header"><div class="wrapper head-inner">
 <a class="logo" href="#top" aria-label="Объединённый Слопостан, наверх"><span class="logo-icon">ОС</span><span class="logo-title">Объединённый<br>Слопостан<span class="logo-small">Цифровое государство</span></span></a>
-<nav aria-label="Основная навигация"><a href="#about">О государстве</a><a href="#flag">Флаг</a><a href="#anthem">Гимн</a><a href="id.html">ID гражданина</a><a href="#constitution" class="nav-accent">Конституция ↗</a></nav>
+<nav aria-label="Основная навигация"><a href="#about">О государстве</a><a href="#flag">Флаг</a><a href="#anthem">Гимн</a><a href="id.html">ID гражданина</a><a href="https://t.me/slopostan" target="_blank" rel="noopener noreferrer" aria-label="Telegram-чат Слопостана (откроется в новой вкладке)">Чат ↗</a><a href="#constitution" class="nav-accent">Конституция ↗</a></nav>
 </div></header>
 <main id="top">
 <section class="hero" id="about"><div class="wrapper"><div class="hero-grid">
@@ -555,7 +557,7 @@ h3{font-size:23px;letter-spacing:-.04em;line-height:1.25}
 <p class="law-bottom">Это проект Конституции виртуального государства, а не действующий нормативный акт признанного государства.</p>
 </div></section>
 </main>
-<footer class="site-footer"><div class="wrapper"><div class="footer-main"><div><span class="eyebrow">Да пребудет вовек</span><h2>СЛОПОСТАН.</h2></div><p class="footer-tagline">Наше прошлое может быть выдумано. Наше будущее — ещё нет.</p></div><div class="footer-bottom"><p>Слопостан — художественный проект виртуального государства и добровольного цифрового сообщества. Не обладает международно признанным государственным статусом. Сувенирные цифровые удостоверения сайта не являются официальными документами и не подтверждают гражданство.</p><a href="#top">Наверх ↑</a></div></div></footer>
+<footer class="site-footer"><div class="wrapper"><div class="footer-main"><div><span class="eyebrow">Да пребудет вовек</span><h2>СЛОПОСТАН.</h2></div><p class="footer-tagline">Наше прошлое может быть выдумано. Наше будущее — ещё нет.</p></div><div class="footer-bottom"><p>Слопостан — художественный проект виртуального государства и добровольного цифрового сообщества. Не обладает международно признанным государственным статусом. Сувенирные цифровые удостоверения сайта не являются официальными документами и не подтверждают гражданство.</p><div class="footer-links"><a href="https://t.me/slopostan" target="_blank" rel="noopener noreferrer">Telegram-чат ↗</a><a href="#top">Наверх ↑</a></div></div></div></footer>
 <script>
 (() => {
   const chapters = [...document.querySelectorAll('.law-chapter')];
